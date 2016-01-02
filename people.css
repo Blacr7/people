@@ -7988,6 +7988,23 @@ body {
 }
 
 /* new css */
-input::-webkit-input-placeholder {
-    color: #000000;
+.deleteButton {
+    background-color:transparent;
+    border: none;
+    display:inline-block;
+    cursor:pointer;
+    color:#050505;
+    font-family:Arial;
+    font-size:15px;
+    padding:6px 15px;
+    text-decoration:none;
+}
+.deleteButton:hover {
+    background-color:transparent;
+}
+.deleteButton:active {
+    position:relative;
+    top:1px;
+}
+
 }

@@ -1,7 +1,8 @@
-
+Group = new Mongo.Collection("group");
 if (Meteor.isClient) {
-
+    
     Template.people.helpers({
+      
       people: function () { 
 
         return People.find();
@@ -19,9 +20,24 @@ if (Meteor.isClient) {
         };
         var path = FlowRouter.path("profile", params);
         return path;
-      }
+      },
+      //test data
+                email: function(email){
+                  email = "test@email";
+                  return email;
+                },
 
-   /* //peopleList
+                fullname: function(fullname){
+                  fullname = "Mr test Mrs Test";
+                  return fullname;
+                },
+                member_key: function(member_key){
+                  member_key = 186318;
+                  return member_key;
+                }
+      // end test data
+
+      /* //peopleList
        peopleList: [{
             personId: 1,
             pic: "/images/user-images/profile-jane.jpg",
@@ -34,15 +50,28 @@ if (Meteor.isClient) {
           },
         ],
 
-    */
+      */
     });
 
     Template.people.events({
-      // add to the group table 
+       // add to the group list
+      "click .addToGroup": function(event, Template){
+        Group.insert({
+          member_key: 1,
+          fullname: 2,
+          email: 3
+        })
+        Template.$(".groupList").append("<li>" + Group.member_key + Group.fullname + Group.email + "</li>");
+      }
+      /*
+      "click .deleteButton": function(event){
+        
+      }*/
 
   });
-}
 
+}
+  
   
 
 
